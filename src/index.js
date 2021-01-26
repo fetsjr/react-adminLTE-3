@@ -4,10 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { Provider as StoreProvider } from 'react-redux';
+import { configureStore } from './redux/store'
+// import  fontawesome library
+import './fontawesome';
+
+
 ReactDOM.render(
-  <React.StrictMode>
+  <StoreProvider store={configureStore()}>
     <App />
-  </React.StrictMode>,
+  </StoreProvider>,
   document.getElementById('root')
 );
 
