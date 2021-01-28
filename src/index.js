@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Suspense} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -12,7 +12,9 @@ import './fontawesome';
 
 ReactDOM.render(
   <StoreProvider store={configureStore()}>
-    <App />
+      <Suspense fallback={<div>Loading... </div>}>
+          <App />
+      </Suspense>
   </StoreProvider>,
   document.getElementById('root')
 );
