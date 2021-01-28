@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Router } from 'react-router-dom';
+import {BrowserRouter, Router} from 'react-router-dom';
 import { createBrowserHistory } from "history";
 import { renderRoutes } from "react-router-config"
 
@@ -12,9 +12,9 @@ const history = createBrowserHistory();
 
 function App() {
   return (
-      <Router history={history}>
+      <BrowserRouter history={history}>
           { renderRoutes(routes)}
-      </Router>
+      </BrowserRouter>
      // <FixedSidebar />
   );
 }

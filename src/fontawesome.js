@@ -8,8 +8,10 @@ import {
   faThLarge,
   faTachometerAlt,
   faAngleLeft,
+  faEnvelope,
+  faLock,
 } from "@fortawesome/free-solid-svg-icons";
-
+import { faFacebook, faGooglePlus } from "@fortawesome/free-brands-svg-icons";
 library.add(
   faSearch,
   faThLarge,
@@ -18,5 +20,9 @@ library.add(
   faTimes,
   faBars,
   faTachometerAlt,
-  faAngleLeft
+  faAngleLeft,
+  faEnvelope,
+  faLock,
+  faFacebook,
+  faGooglePlus
 );

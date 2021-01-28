@@ -4,6 +4,7 @@ import AuthLayout from './layouts/AuthLayout'
 import {FixedSidebar} from "./layouts/FixedSidebar";
 
 import Dashboard from './views/Dashboard';
+import ErrorLayout from "./layouts/ErrorLayout";
 const routes = [
     {
         path: '/',
@@ -24,7 +25,34 @@ const routes = [
               exact: true,
               component: lazy(() => import('./views/Register')),
           },
+          {
+              component: () => <Redirect to="/errors/error-404" />
+          }
       ]
+    },
+    {
+        path: '/errors',
+        component: ErrorLayout,
+        routes: [
+            {
+                path: '/errors/error-401',
+                exact: true,
+                component: lazy(() => import('./views/E401'))
+            },
+            {
+                path: '/errors/error-404',
+                exact: true,
+                component: lazy(() => import('./views/E404'))
+            },
+            {
+                path: '/errors/error-500',
+                exact: true,
+                component: lazy(() => import('./views/E500'))
+            },
+            {
+                component: () => <Redirect to="/errors/error-404" />
+            }
+        ]
     },
     {
         route: '*',
@@ -34,6 +62,9 @@ const routes = [
                 path: '/dashboard',
                 exact: true,
                 component: Dashboard,
+            },
+            {
+                component: () => <Redirect to="/errors/error-404" />
             }
         ]
     }
