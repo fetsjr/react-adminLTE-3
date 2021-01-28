@@ -10,6 +10,7 @@ import {
   faAngleLeft,
   faEnvelope,
   faLock,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faGooglePlus } from "@fortawesome/free-brands-svg-icons";
 library.add(
@@ -24,5 +25,6 @@ library.add(
   faEnvelope,
   faLock,
   faFacebook,
-  faGooglePlus
+  faGooglePlus,
+  faUser,
 );
