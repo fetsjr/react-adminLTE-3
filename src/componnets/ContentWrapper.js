@@ -6,7 +6,7 @@ type Props = {
 };
 export const ContentWrapper = (props: Props) => {
     return (
-        <div>
+        <>
             <div className="content-wrapper">
 
                 <section className="content-header">
@@ -33,6 +33,6 @@ export const ContentWrapper = (props: Props) => {
                 </section>
 
             </div>
-        </div>
+        </>
     );
 };
