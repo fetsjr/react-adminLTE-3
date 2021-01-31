@@ -32,7 +32,7 @@ export const SidebarNav = (props: Props) => {
     })
   };
   return (
-    <div>
+    <>
       <nav className="mt-2">
         <ul
           id="menu"
@@ -691,6 +691,6 @@ export const SidebarNav = (props: Props) => {
           </li>
         </ul>
       </nav>
-    </div>
+    </>
   );
 };

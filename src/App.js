@@ -5,6 +5,7 @@ import { renderRoutes } from "react-router-config"
 
 import './App.css';
 import './assets/scss/adminlte.scss'
+import 'overlayscrollbars/css/OverlayScrollbars.css';
 import {FixedSidebar} from "./layouts/FixedSidebar";
 import routes from "./routes"
 
@@ -12,7 +13,7 @@ const history = createBrowserHistory();
 
 function App() {
   return (
-      <BrowserRouter history={history}>
+      <BrowserRouter >
           { renderRoutes(routes)}
       </BrowserRouter>
      // <FixedSidebar />
