@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {ConfigPage} from "../componnets/ConfigPage";
 import {Link } from "react-router-dom";
-import { git, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {ICheck} from "../componnets/ICheck";
