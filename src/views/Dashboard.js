@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import {ConfigPage} from "../componnets/ConfigPage";
 
 type Props = {
 
@@ -7,7 +8,10 @@ type Props = {
  const Dashboard = (props: Props) => {
     return (
         <>
-          <h1>HOLA MUNDO</h1>
+            <ConfigPage title="Dashboard" BodyCss='hold-transition sidebar-mini layout-fixed' >
+                <h1>HOLA MUNDO</h1>
+            </ConfigPage>
+
         </>
     );
 };

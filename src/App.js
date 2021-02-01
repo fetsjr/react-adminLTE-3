@@ -1,23 +1,18 @@
-import * as React from 'react';
-import {BrowserRouter, Router} from 'react-router-dom';
+import * as React from "react";
+import { BrowserRouter, Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
-import { renderRoutes } from "react-router-config"
+import { renderRoutes } from "react-router-config";
 
-import './App.css';
-import './assets/scss/adminlte.scss'
-import 'overlayscrollbars/css/OverlayScrollbars.css';
-import {FixedSidebar} from "./layouts/FixedSidebar";
-import routes from "./routes"
+import "./App.css";
+import "./assets/scss/adminlte.scss";
+
+
+import routes from "./routes";
 
 const history = createBrowserHistory();
 
 function App() {
-  return (
-      <BrowserRouter >
-          { renderRoutes(routes)}
-      </BrowserRouter>
-     // <FixedSidebar />
-  );
+  return <BrowserRouter>{renderRoutes(routes)}</BrowserRouter>;
 }
 
 export default App;
