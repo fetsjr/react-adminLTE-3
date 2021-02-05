@@ -42,7 +42,9 @@ export const SlideToggleContent = ({ isVisible, children, forceSlideIn }) => {
         if (show) {
             return (
                 <animated.div ref={containerRef} key={key} style={springProps}>
-                    {children}
+                 <div ref={innerRef} >
+                     {children}
+                 </div>
                 </animated.div>
             );
         }
