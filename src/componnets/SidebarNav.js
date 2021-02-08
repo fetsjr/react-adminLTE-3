@@ -4,13 +4,7 @@ import SidebarNavItem from "./SidebarNavItem";
 import SidebarNavItemLink from "./SidebarNavItemLink";
 type Props = {};
 
-
 export const SidebarNav = (props: Props) => {
-  // const CLASS_NAME_COLLAPSED = 'sidebar-collapse'
-  // const CLASS_NAME_OPEN = 'sidebar-open'
-  // const CLASS_NAME_IS_OPENING = 'sidebar-is-opening'
-  // const CLASS_NAME_CLOSED = 'sidebar-closed'
-
   return (
     <>
       <nav className="mt-2">
@@ -21,205 +15,73 @@ export const SidebarNav = (props: Props) => {
           role="menu"
           data-accordion="false"
         >
-          <SidebarNavItem icon="tachometer-alt" title="Dashboard" >
-            <SidebarNavItemLink title='Dashboard v1' link="/" />
-            <SidebarNavItemLink title='Dashboard v2' link="/" />
-            <SidebarNavItemLink title='Dashboard v3' link="/"/>
+          <SidebarNavItem icon="tachometer-alt" title="Dashboard">
+            <SidebarNavItemLink title="Dashboard v1" link="/" />
+            <SidebarNavItemLink title="Dashboard v2" link="/" />
+            <SidebarNavItemLink title="Dashboard v3" link="/" />
           </SidebarNavItem>
-          <SidebarNavItem icon="th" title="Widgets" badge={{title:'New',css:'badge-danger'}} />
-          <SidebarNavItem icon="copy" title="Layout Options" badge={{title:'6', css:'badge-info'}} >
-            <SidebarNavItemLink title='Top Navigatio' link="/" />
-            <SidebarNavItemLink title='Top Navigation + Sidebar' link="/" />
-            <SidebarNavItemLink title='Boxed' link="/" />
-            <SidebarNavItemLink title='Fixed Sidebar' link="/" />
-            <SidebarNavItemLink title={'Fixed Sidebar'+ <small>+ Custom Area</small>} link="/" />
-            <SidebarNavItemLink title='Fixed Navbar' link="/" />
-            <SidebarNavItemLink title='Fixed Footer' link="/" />
-            <SidebarNavItemLink title='Collapsed Sidebar' link="/" />
+          <SidebarNavItem
+            icon="th"
+            title="Widgets"
+            badge={{ title: "New", css: "badge-danger" }}
+            link="/pages/widgets"
+          />
+          <SidebarNavItem
+            icon="copy"
+            title="Layout Options"
+            badge={{ title: "6", css: "badge-info" }}
+          >
+            <SidebarNavItemLink title="Top Navigatio" link="/" />
+            <SidebarNavItemLink title="Top Navigation  Sidebar" link="/" />
+            <SidebarNavItemLink title="Boxed" link="/" />
+            <SidebarNavItemLink title="Fixed Sidebar" link="/" />
+            <SidebarNavItemLink title={"Fixed Sidebar Custom"} link="/" />
+            <SidebarNavItemLink title="Fixed Navbar" link="/" />
+            <SidebarNavItemLink title="Fixed Footer" link="/" />
+            <SidebarNavItemLink title="Collapsed Sidebar" link="/" />
           </SidebarNavItem>
 
+          <SidebarNavItem icon="chart-pie" title="Charts">
+            <SidebarNavItemLink title="ChartJS" link="/" />
+            <SidebarNavItemLink title="Flot" link="/" />
+            <SidebarNavItemLink title="Inline" link="/" />
+            <SidebarNavItemLink title="uPlot" link="/" />
+          </SidebarNavItem>
 
+          <SidebarNavItem icon="tree" title="UI Elements">
+            <SidebarNavItemLink title="General" link="/" />
+            <SidebarNavItemLink title="Icons" link="/" />
+            <SidebarNavItemLink title="Buttons" link="/" />
+            <SidebarNavItemLink title="Sliders" link="/" />
+            <SidebarNavItemLink title="Modals & Alerts" link="/" />
+            <SidebarNavItemLink title="Navbar & Tabs" link="/" />
+            <SidebarNavItemLink title="Timeline" link="/" />
+            <SidebarNavItemLink title="Ribbons" link="/" />
+          </SidebarNavItem>
 
-          <li className="nav-item">
-            <a href="#" className="nav-link">
-              <i className="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Charts
-                <i className="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul className="nav nav-treeview">
-              <li className="nav-item">
-                <a href="../charts/chartjs.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>ChartJS</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="../charts/flot.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Flot</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="../charts/inline.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Inline</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="../charts/uplot.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>uPlot</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link">
-              <i className="nav-icon fas fa-tree"></i>
-              <p>
-                UI Elements
-                <i className="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul className="nav nav-treeview">
-              <li className="nav-item">
-                <a href="../UI/general.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>General</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="../UI/icons.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Icons</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="../UI/buttons.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Buttons</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="../UI/sliders.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Sliders</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="../UI/modals.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Modals & Alerts</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="../UI/navbar.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Navbar & Tabs</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="../UI/timeline.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Timeline</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="../UI/ribbons.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Ribbons</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link">
-              <i className="nav-icon fas fa-edit"></i>
-              <p>
-                Forms
-                <i className="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul className="nav nav-treeview">
-              <li className="nav-item">
-                <a href="../forms/general.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>General Elements</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="../forms/advanced.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Advanced Elements</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="../forms/editors.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Editors</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="../forms/validation.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Validation</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link">
-              <i className="nav-icon fas fa-table"></i>
-              <p>
-                Tables
-                <i className="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul className="nav nav-treeview">
-              <li className="nav-item">
-                <a href="../tables/simple.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Simple Tables</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="../tables/data.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>DataTables</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="../tables/jsgrid.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>jsGrid</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+          <SidebarNavItem icon="edit" title="Forms">
+            <SidebarNavItemLink title="General Elements" link="/" />
+            <SidebarNavItemLink title="Advanced Elements" link="/" />
+            <SidebarNavItemLink title="Editors" link="/" />
+            <SidebarNavItemLink title="Validation" link="/" />
+          </SidebarNavItem>
+
+          <SidebarNavItem icon="table" title="Tables">
+            <SidebarNavItemLink title="Simple Tables" link="/" />
+            <SidebarNavItemLink title="DataTables" link="/" />
+            <SidebarNavItemLink title="jsGrid" link="/" />
+          </SidebarNavItem>
           <li className="nav-header">EXAMPLES</li>
-          <li className="nav-item">
-            <a href="../calendar.html" className="nav-link">
-              <i className="nav-icon far fa-calendar-alt"></i>
-              <p>
-                Calendar
-                <span className="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="../gallery.html" className="nav-link">
-              <i className="nav-icon far fa-image"></i>
-              <p>Gallery</p>
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="../kanban.html" className="nav-link">
-              <i className="nav-icon fas fa-columns"></i>
-              <p>Kanban Board</p>
-            </a>
-          </li>
+
+          <SidebarNavItem
+            icon="calendar-alt"
+            title="Calendar"
+            badge={{ title: "6", css: "badge-info" }}
+          />
+          <SidebarNavItem icon="image" title="Gallery" />
+          <SidebarNavItem icon="columns" title="Kanban Board" />
+
+
           <li className="nav-item">
             <a href="#" className="nav-link">
               <i className="nav-icon far fa-envelope"></i>

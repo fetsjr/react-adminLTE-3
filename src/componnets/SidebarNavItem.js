@@ -2,8 +2,9 @@
 import React, { useState, Fragment } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import { useSpring, animated,config } from "react-spring";
-import {useMeasure} from '../helpers/useMesure'
+import { useSpring, animated, config } from "react-spring";
+import { Spring } from "react-spring/renderprops";
+import { useMeasure } from "../helpers/useMesure";
 type Props = {
   icon: "tachometer-alt",
   title: "",
@@ -11,38 +12,37 @@ type Props = {
     title: "",
     css: "badge-danger",
   },
+  link?: string,
 };
 
 const SidebarNavItem = (props: Props) => {
-  const { icon, title, children } = props;
+  const { icon, title, children, link } = props;
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const style = {
-    display: "block"
+    display: "block",
   };
 
-  const [bind,{height}] = useMeasure()
+  const [bind, { height }] = useMeasure();
   const displayStyle = useSpring({
-    config: { ...config.stiff,clamp: true  },
-    from: { opacity: 0, height: 0},
+    config: { ...config.stiff, clamp: true },
+    from: { opacity: 0, height: 0 },
     to: {
       opacity: dropdownOpen ? 1 : 0,
       height: dropdownOpen ? height : 0,
-
-    }
+    },
   });
   const rotateIcon = useSpring({
-    from:{ transform: 'rotate(0deg)' },
-    to:{ transform: `rotate(${dropdownOpen?0:90}deg)`}
-  })
+    from: { transform: "rotate(0deg)" },
+    to: { transform: `rotate(${dropdownOpen ? 0 : 90}deg)` },
+  });
   const toggle = (e) => {
-    e.preventDefault();
     setDropdownOpen(!dropdownOpen);
   };
   return (
     <>
-      <li className={"nav-item " + (dropdownOpen ? "menu-is-opening" : "")}>
+      <li className={"nav-item"}>
         <Link
-          to="#"
+          to={link ? link : "#"}
           className={"nav-link " + (dropdownOpen ? "active" : "")}
           onClick={toggle}
         >
@@ -50,10 +50,16 @@ const SidebarNavItem = (props: Props) => {
           <p>
             {title}
             {children ? (
-              <animated.div style={rotateIcon}>
-                <FontAwesomeIcon icon={["fas", "angle-left"]} className="right"  />
-              </animated.div>
-
+              <Spring to={{ value: dropdownOpen ? 0 : -90 }}>
+                {(props) => (
+                  <FontAwesomeIcon
+                    icon={["fas", "angle-left"]}
+                    className="right"
+                    style={props}
+                    transform={{ rotate: props.value }}
+                  />
+                )}
+              </Spring>
             ) : (
               ""
             )}
@@ -67,8 +73,8 @@ const SidebarNavItem = (props: Props) => {
           </p>
         </Link>
 
-        <animated.div style={{...displayStyle, overflow: "hidden" }}>
-          <ul className="nav nav-treeview "  {...bind} style={style}>
+        <animated.div style={{ ...displayStyle, overflow: "hidden" }}>
+          <ul className="nav nav-treeview " {...bind} style={style}>
             {children}
           </ul>
         </animated.div>
