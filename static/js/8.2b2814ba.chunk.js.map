@@ -1,0 +1,1 @@
+{"version":3,"sources":["views/E500.js"],"names":["E500","props"],"mappings":"mLAIaA,G,KAAO,SAACC,GACnB,OACE,8BACE","file":"static/js/8.2b2814ba.chunk.js","sourcesContent":["// @flow\nimport * as React from \"react\";\n\ntype Props = {};\nexport const E500 = (props: Props) => {\n  return (\n    <div>\n      <h1>error 500</h1>\n    </div>\n  );\n};\n"],"sourceRoot":""}
