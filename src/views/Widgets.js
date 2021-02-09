@@ -118,7 +118,9 @@ type Props = {
                     <h5 className="mb-2">Abilities</h5>
                     <div className="row">
                         <div className="col-md-3 col-sm-6 col-12">
-                            <Cards  />
+                            <Cards collapse={true} >
+                                The body of the card
+                            </Cards>
                         </div>
                         <div className="col-md-3 col-sm-6 col-12">
                             <Cards />
@@ -133,7 +135,7 @@ type Props = {
 
                     <div className="row">
                         <div className="col-md-3 col-sm-6 col-12">
-                            <Cards  />
+                            <Cards collapse={true} />
                         </div>
                         <div className="col-md-3 col-sm-6 col-12">
                             <Cards />
