@@ -1,51 +1,53 @@
 // @flow
-import * as React from 'react';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {Link} from "react-router-dom";
-import SidebarNavItemLink from "./SidebarNavItemLink";
+import React,{ useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
+import {useSpring, animated} from 'react-spring'
 
 type Props = {
-  icon: 'tachometer-alt';
-  title: ''
+  icon: "tachometer-alt",
+  title: "",
+  badge?:{
+    title: "",
+    css: "badge-danger"
+  }
 };
 
 const SidebarNavItem = (props: Props) => {
-    const {icon,title} = props;
-    return (
-        <>
-            <li className="nav-item">
-                <Link to="#" className="nav-link">
-                    <FontAwesomeIcon icon={icon} className="nav-icon" />
-                    <p>
-                        {title}
-                        <FontAwesomeIcon icon={['fas', 'angle-left']} className="right" />
-                    </p>
-                </Link>
-                <ul className="nav nav-treeview">
-                    <SidebarNavItemLink title='Dashboard v1' link="index.html" />
+  const { icon, title, children } = props;
+  const [dropdownOpen,setDropdownOpen] =useState(false)
+  const style = {
+    display: dropdownOpen?'block':'none'
+  }
+  const displayStyle = useSpring({
+    to: {display: dropdownOpen?'block':'none',height: dropdownOpen?'100%':'0%', overflow:dropdownOpen?'hidden':'hiden'},
+    config: { duration: 2000 }
+    } )
+  const toggle = (e)=>{
+    e.preventDefault();
+    setDropdownOpen(!dropdownOpen)
+  }
+  return (
+    <>
+      <li className={"nav-item " + (dropdownOpen?'menu-is-opening':'') }>
+        <Link to="#" className={ 'nav-link ' + (dropdownOpen ? 'active':'')}  onClick={toggle}>
+          <FontAwesomeIcon icon={icon} className="nav-icon" />
+          <p>
+            {title}
+            { children?<FontAwesomeIcon icon={["fas", "angle-left"]} className="right" /> :'' }
+            {props.badge ? <span className={ "right badge " + props.badge.css }>{props.badge.title}</span> : ''}
+          </p>
+        </Link>
+        <animated.ul className="nav nav-treeview" style={displayStyle}>
 
-                    <li className="nav-item">
-                        <a href="../../index.html" className="nav-link">
-                            <i className="far fa-circle nav-icon"></i>
-                            <p>Dashboard v1</p>
-                        </a>
-                    </li>
-                    <li className="nav-item">
-                        <a href="../../index2.html" className="nav-link">
-                            <i className="far fa-circle nav-icon"></i>
-                            <p>Dashboard v2</p>
-                        </a>
-                    </li>
-                    <li className="nav-item">
-                        <a href="../../index3.html" className="nav-link">
-                            <i className="far fa-circle nav-icon"></i>
-                            <p>Dashboard v3</p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-        </>
-    );
+            {children}
+
+
+        </animated.ul>
+
+      </li>
+    </>
+  );
 };
 
 export default SidebarNavItem;

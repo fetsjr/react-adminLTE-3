@@ -1,36 +1,16 @@
 // @flow
-import React, {useEffect } from "react";
-// import { Link, withRouter } from 'react-router-dom';
-// import { connect } from 'react-redux';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee, } from '@fortawesome/free-solid-svg-icons'
-import MetisMenu from "metismenujs/dist/metismenujs";
+import React, { useEffect } from "react";
+import SidebarNavItem from "./SidebarNavItem";
+import SidebarNavItemLink from "./SidebarNavItemLink";
 type Props = {};
+
+
 export const SidebarNav = (props: Props) => {
   // const CLASS_NAME_COLLAPSED = 'sidebar-collapse'
   // const CLASS_NAME_OPEN = 'sidebar-open'
   // const CLASS_NAME_IS_OPENING = 'sidebar-is-opening'
   // const CLASS_NAME_CLOSED = 'sidebar-closed'
 
-  useEffect(()=>{
-    initMenu();
-    console.log('hola')
-  },[])
-
-
-  const initMenu = () => {
-    const menuRef = new MetisMenu("#menu",{  triggerElement: '.nav-link',parentTrigger: '.nav-item',subMenu: 'nav.nav-treeview'  });
-    menuRef.on('show.metisMenu',function (event)  {
-      console.log(event)
-      window.addEventListener('click', function menuClick(e) {
-        console.log(e)
-        if (!event.target.contains(e.target)) {
-          menuRef.hide(event.detail.shownElement);
-          window.removeEventListener('click', menuClick);
-        }
-      });
-    })
-  };
   return (
     <>
       <nav className="mt-2">
@@ -41,112 +21,25 @@ export const SidebarNav = (props: Props) => {
           role="menu"
           data-accordion="false"
         >
-          <li className="nav-item">
-            <a href="#" className="nav-link">
-              <FontAwesomeIcon icon={['fas', 'tachometer-alt']} className="nav-icon" />
-              <p>
-                Dashboard
-                <FontAwesomeIcon icon={['fas', 'angle-left']} className="right" />
-              </p>
-            </a>
-            <ul className="nav nav-treeview">
-              <li className="nav-item">
-                <a href="../../index.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="../../index2.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="../../index3.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li className="nav-item">
-            <a href="../widgets.html" className="nav-link">
-              <i className="nav-icon fas fa-th"></i>
-              <p>
-                Widgets
-                <span className="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li>
-          <li className="nav-item ">
-            <a href="#" className="nav-link active">
-              <i className="nav-icon fas fa-copy"></i>
-              <p>
-                Layout Options
-                <i className="fas fa-angle-left right"></i>
-                <span className="badge badge-info right">6</span>
-              </p>
-            </a>
-            <ul className="nav nav-treeview">
-              <li className="nav-item">
-                <a href="../layout/top-nav.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Top Navigation</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="../layout/top-nav-sidebar.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Top Navigation + Sidebar</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="../layout/boxed.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Boxed</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  href="../layout/fixed-sidebar.html"
-                  className="nav-link active"
-                >
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Fixed Sidebar</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  href="../layout/fixed-sidebar-custom.html"
-                  className="nav-link"
-                >
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>
-                    Fixed Sidebar <small>+ Custom Area</small>
-                  </p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="../layout/fixed-topnav.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Fixed Navbar</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="../layout/fixed-footer.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Fixed Footer</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="../layout/collapsed-sidebar.html" className="nav-link">
-                  <i className="far fa-circle nav-icon"></i>
-                  <p>Collapsed Sidebar</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+          <SidebarNavItem icon="tachometer-alt" title="Dashboard" >
+            <SidebarNavItemLink title='Dashboard v1' link="/" />
+            <SidebarNavItemLink title='Dashboard v2' link="/" />
+            <SidebarNavItemLink title='Dashboard v3' link="/"/>
+          </SidebarNavItem>
+          <SidebarNavItem icon="th" title="Widgets" badge={{title:'New',css:'badge-danger'}} />
+          <SidebarNavItem icon="copy" title="Layout Options" badge={{title:'6', css:'badge-info'}} >
+            <SidebarNavItemLink title='Top Navigatio' link="/" />
+            <SidebarNavItemLink title='Top Navigation + Sidebar' link="/" />
+            <SidebarNavItemLink title='Boxed' link="/" />
+            <SidebarNavItemLink title='Fixed Sidebar' link="/" />
+            <SidebarNavItemLink title={'Fixed Sidebar'+ <small>+ Custom Area</small>} link="/" />
+            <SidebarNavItemLink title='Fixed Navbar' link="/" />
+            <SidebarNavItemLink title='Fixed Footer' link="/" />
+            <SidebarNavItemLink title='Collapsed Sidebar' link="/" />
+          </SidebarNavItem>
+
+
+
           <li className="nav-item">
             <a href="#" className="nav-link">
               <i className="nav-icon fas fa-chart-pie"></i>
