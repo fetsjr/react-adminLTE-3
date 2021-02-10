@@ -5,6 +5,7 @@ import {FixedSidebar} from "./layouts/FixedSidebar";
 
 import Dashboard from './views/Dashboard';
 import ErrorLayout from "./layouts/ErrorLayout";
+import Widgets from "./views/Widgets";
 const routes = [
     {
         path: '/',
@@ -62,6 +63,11 @@ const routes = [
                 path: '/dashboard',
                 exact: true,
                 component: Dashboard,
+            },
+            {
+                path: '/pages/widgets',
+                exact: true,
+                component: Widgets,
             },
             {
                 component: () => <Redirect to="/errors/error-404" />

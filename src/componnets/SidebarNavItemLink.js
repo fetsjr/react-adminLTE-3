@@ -12,7 +12,7 @@ const SidebarNavItemLink = (props: Props) => {
         <>
             <li className="nav-item">
                 <Link to={link} className="nav-link">
-                    <FontAwesomeIcon icon="circle" className="nav-icon" />
+                    <FontAwesomeIcon icon={["far", "circle"]} className="nav-icon" />
                     <p>{title}</p>
                 </Link>
             </li>
